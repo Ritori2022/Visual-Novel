@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ## 《漩涡与萤火》- 主脚本文件
 ## Vortex and Firefly - Main Script
 
