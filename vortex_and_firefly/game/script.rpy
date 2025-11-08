@@ -43,13 +43,22 @@ image bg instrument = "#1A1A1A"
 image bg vortex = "#4A0E4E"
 
 # 角色（当前使用文本占位符）
-image geo neutral = Text("GEO\n[中性]", size=30, color="#4A7BA7")
-image geo thinking = Text("GEO\n[思考]", size=30, color="#4A7BA7")
-image geo shocked = Text("GEO\n[震惊]", size=30, color="#4A7BA7")
-image geo enlightened = Text("GEO\n[顿悟]", size=30, color="#4A7BA7")
+# 注意：方括号需要转义，使用[[]]
+image geo neutral = Text("GEO\n[[中性]]", size=30, color="#4A7BA7")
+image geo thinking = Text("GEO\n[[思考]]", size=30, color="#4A7BA7")
+image geo shocked = Text("GEO\n[[震惊]]", size=30, color="#4A7BA7")
+image geo enlightened = Text("GEO\n[[顿悟]]", size=30, color="#4A7BA7")
+image geo angry = Text("GEO\n[[愤怒]]", size=30, color="#4A7BA7")
+image geo martyr = Text("GEO\n[[殉道者]]", size=30, color="#FF6B6B")
+image geo obsessed = Text("GEO\n[[偏执]]", size=30, color="#6B4A7B")
+image geo transcendent = Text("GEO\n[[超越]]", size=30, color="#4AAFFF")
 
-image astral calm = Text("ASTRAL\n[冷静]", size=30, color="#8B7AB8")
-image astral curious = Text("ASTRAL\n[好奇]", size=30, color="#8B7AB8")
+image astral calm = Text("ASTRAL\n[[冷静]]", size=30, color="#8B7AB8")
+image astral curious = Text("ASTRAL\n[[好奇]]", size=30, color="#8B7AB8")
+image astral cautious = Text("ASTRAL\n[[警惕]]", size=30, color="#8B7AB8")
+image astral approve = Text("ASTRAL\n[[赞同]]", size=30, color="#8B7AB8")
+image astral shocked = Text("ASTRAL\n[[震惊]]", size=30, color="#8B7AB8")
+image astral despair = Text("ASTRAL\n[[绝望]]", size=30, color="#8B7AB8")
 
 ## ============================================
 ## 性格检测函数
@@ -1323,7 +1332,7 @@ label rebellion_success:
     部分地。
 
     漩涡没有消失，
-    但能量吸收减少了73%。
+    但能量吸收减少了73%%。
 
     代价：
 
