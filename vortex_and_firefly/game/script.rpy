@@ -73,7 +73,7 @@ define slow_dissolve = Dissolve(2.0)  # 2秒缓慢淡入淡出
 init python:
     def check_personality():
         """返回当前性格倾向的文本描述（调试用）"""
-        desc = f"接受度: {acceptance_level} | 怀疑度: {doubt_intensity} | 殉道: {martyrdom_tendency}"
+        desc = "接受度: {} | 怀疑度: {} | 殉道: {}".format(acceptance_level, doubt_intensity, martyrdom_tendency)
         return desc
 
     def can_unlock_ending(ending_code):
