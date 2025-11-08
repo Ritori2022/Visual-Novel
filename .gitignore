@@ -1,0 +1,49 @@
+# Ren'Py SDK (too large for git)
+renpy-*.tar.bz2
+renpy-*/
+renpy-8.*/
+
+# Ren'Py compiled files
+*.rpyc
+*.rpa
+*.rpymc
+
+# Ren'Py cache and saves
+game/cache/
+game/saves/
+*/game/cache/
+*/game/saves/
+
+# Ren'Py logs
+log.txt
+traceback.txt
+errors.txt
+*/log.txt
+*/traceback.txt
+*/errors.txt
+
+# Build outputs
+web-dist/
+*-dists/
+progressive_download.txt
+*/progressive_download.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
