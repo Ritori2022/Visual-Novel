@@ -2,6 +2,27 @@
 ## Vortex and Firefly - Main Script
 
 ## ============================================
+## 字体配置（中文支持）
+## ============================================
+
+## 注意：需要下载中文字体文件到 game/fonts/ 目录
+## 推荐字体：Noto Sans SC (思源黑体简体中文)
+## 下载地址：https://github.com/googlefonts/noto-cjk/raw/main/Sans/OTF/SimplifiedChinese/NotoSansSC-Regular.otf
+
+init python:
+    ## 如果中文字体文件存在，则使用；否则回退到DejaVuSans
+    import os
+    chinese_font_path = "fonts/NotoSansSC-Regular.otf"
+    if os.path.exists(renpy.loader.transfn(chinese_font_path)):
+        # 中文字体可用
+        gui.text_font = chinese_font_path
+        gui.name_text_font = chinese_font_path
+        gui.interface_text_font = chinese_font_path
+    else:
+        # 回退到默认字体（会显示中文为方块，但不会崩溃）
+        renpy.notify("警告：未找到中文字体，中文可能无法正常显示")
+
+## ============================================
 ## 角色定义
 ## ============================================
 
