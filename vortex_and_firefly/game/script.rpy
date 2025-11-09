@@ -14,13 +14,32 @@ init python:
     import os
     chinese_font_path = "fonts/NotoSansSC-Regular.otf"
     if os.path.exists(renpy.loader.transfn(chinese_font_path)):
-        # 中文字体可用
-        gui.text_font = chinese_font_path
-        gui.name_text_font = chinese_font_path
-        gui.interface_text_font = chinese_font_path
+        # 中文字体可用 - 使用style设置（因为项目没有gui.rpy）
+        style.default.font = chinese_font_path
+        style.say_dialogue.font = chinese_font_path
+        style.say_label.font = chinese_font_path
+        style.button_text.font = chinese_font_path
+        style.choice_button_text.font = chinese_font_path
+        renpy.notify("✓ 中文字体加载成功")
     else:
         # 回退到默认字体（会显示中文为方块，但不会崩溃）
         renpy.notify("警告：未找到中文字体，中文可能无法正常显示")
+
+    ## 对话框布局配置 - 防止文本超出屏幕
+    # 对话框窗口配置
+    style.window.xalign = 0.5  # 水平居中
+    style.window.yalign = 1.0  # 靠近底部
+    style.window.xsize = 1100  # 最大宽度1100像素（适配1280宽度屏幕）
+    style.window.xpadding = 50  # 左右内边距
+    style.window.ypadding = 30  # 上下内边距
+
+    # 对话文本配置
+    style.say_dialogue.xmaximum = 1000  # 文本最大宽度
+    style.say_dialogue.text_align = 0.0  # 左对齐
+    style.say_dialogue.line_spacing = 2  # 行间距
+
+    # 角色名配置
+    style.say_label.xmaximum = 200  # 角色名最大宽度
 
 ## ============================================
 ## 角色定义
