@@ -36,29 +36,90 @@ default clarke_index = 50  # 0=神秘主义, 100=硬科幻
 ## 占位符图片定义
 ## ============================================
 
-# 背景（当前使用颜色占位符）
-image bg mine = "#2B1810"
-image bg observatory = "#0F1E2E"
-image bg instrument = "#1A1A1A"
-image bg vortex = "#4A0E4E"
+# 背景（使用带文字标识的占位符）
+image bg mine = Solid("#2B1810")
+image bg mine_text = Text("【废弃矿井】\n深邃、幽暗、孤独的观测站", size=24, color="#8B7355", xalign=0.5, yalign=0.9)
 
-# 角色（当前使用文本占位符）
+image bg observatory = Solid("#0F1E2E")
+image bg observatory_text = Text("【星图观测台】\n星空下的远程通讯", size=24, color="#6A8CAF", xalign=0.5, yalign=0.9)
+
+image bg instrument = Solid("#1A1A1A")
+image bg instrument_text = Text("【仪器室】\n数据与真相交汇之地", size=24, color="#A9A9A9", xalign=0.5, yalign=0.9)
+
+image bg vortex = Solid("#4A0E4E")
+image bg vortex_text = Text("【深地漩涡】\n不可名状的巨大存在", size=24, color="#9370DB", xalign=0.5, yalign=0.9)
+
+# 组合背景（带标识的完整背景）
+layeredimage bg_mine:
+    always:
+        "bg mine"
+    always:
+        "bg mine_text"
+
+layeredimage bg_observatory_labeled:
+    always:
+        "bg observatory"
+    always:
+        "bg observatory_text"
+
+layeredimage bg_instrument_labeled:
+    always:
+        "bg instrument"
+    always:
+        "bg instrument_text"
+
+layeredimage bg_vortex_labeled:
+    always:
+        "bg vortex"
+    always:
+        "bg vortex_text"
+
+# 角色（使用增强型文本占位符，带边框和背景）
 # 注意：方括号需要转义，使用[[]]
-image geo neutral = Text("GEO\n[[中性]]", size=30, color="#4A7BA7")
-image geo thinking = Text("GEO\n[[思考]]", size=30, color="#4A7BA7")
-image geo shocked = Text("GEO\n[[震惊]]", size=30, color="#4A7BA7")
-image geo enlightened = Text("GEO\n[[顿悟]]", size=30, color="#4A7BA7")
-image geo angry = Text("GEO\n[[愤怒]]", size=30, color="#4A7BA7")
-image geo martyr = Text("GEO\n[[殉道者]]", size=30, color="#FF6B6B")
-image geo obsessed = Text("GEO\n[[偏执]]", size=30, color="#6B4A7B")
-image geo transcendent = Text("GEO\n[[超越]]", size=30, color="#4AAFFF")
 
-image astral calm = Text("ASTRAL\n[[冷静]]", size=30, color="#8B7AB8")
-image astral curious = Text("ASTRAL\n[[好奇]]", size=30, color="#8B7AB8")
-image astral cautious = Text("ASTRAL\n[[警惕]]", size=30, color="#8B7AB8")
-image astral approve = Text("ASTRAL\n[[赞同]]", size=30, color="#8B7AB8")
-image astral shocked = Text("ASTRAL\n[[震惊]]", size=30, color="#8B7AB8")
-image astral despair = Text("ASTRAL\n[[绝望]]", size=30, color="#8B7AB8")
+# === GEO TREMOR - 地质学家 ===
+image geo neutral = Text("【GEO TREMOR】\n地质学家\n\n━━━━━━━━\n[[中性表情]]",
+    size=28, color="#4A7BA7", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image geo thinking = Text("【GEO TREMOR】\n地质学家\n\n━━━━━━━━\n[[思考中]]",
+    size=28, color="#4A7BA7", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image geo shocked = Text("【GEO TREMOR】\n地质学家\n\n━━━━━━━━\n[[震惊！]]",
+    size=28, color="#6BAED6", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image geo enlightened = Text("【GEO TREMOR】\n地质学家\n\n━━━━━━━━\n[[顿悟]]✧",
+    size=28, color="#87CEEB", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image geo angry = Text("【GEO TREMOR】\n地质学家\n\n━━━━━━━━\n[[愤怒]]",
+    size=28, color="#8B4513", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image geo martyr = Text("【GEO TREMOR】\n地质学家\n\n━━━━━━━━\n[[殉道者]]†",
+    size=28, color="#FF6B6B", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image geo obsessed = Text("【GEO TREMOR】\n地质学家\n\n━━━━━━━━\n[[偏执]]⚠",
+    size=28, color="#6B4A7B", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image geo transcendent = Text("【GEO TREMOR】\n地质学家\n\n━━━━━━━━\n[[超越]]✦",
+    size=28, color="#4AAFFF", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+# === ASTRAL - 星图师 ===
+image astral calm = Text("【星图师】\nASTRAL\n\n━━━━━━━━\n[[冷静]]",
+    size=28, color="#8B7AB8", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image astral curious = Text("【星图师】\nASTRAL\n\n━━━━━━━━\n[[好奇]]？",
+    size=28, color="#9B8AC8", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image astral cautious = Text("【星图师】\nASTRAL\n\n━━━━━━━━\n[[警惕]]⚡",
+    size=28, color="#7B6AA8", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image astral approve = Text("【星图师】\nASTRAL\n\n━━━━━━━━\n[[赞同]]✓",
+    size=28, color="#A89AC8", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image astral shocked = Text("【星图师】\nASTRAL\n\n━━━━━━━━\n[[震惊]]！",
+    size=28, color="#9B8AD8", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
+
+image astral despair = Text("【星图师】\nASTRAL\n\n━━━━━━━━\n[[绝望]]...",
+    size=28, color="#6B5A98", outlines=[(2, "#000000", 0, 0)], text_align=0.5)
 
 ## ============================================
 ## 自定义过渡效果
@@ -122,18 +183,31 @@ label start:
 
     nvl clear
 
+    ## 环境描写
+    "矿井深处的观测站，只有仪器屏幕发出幽蓝色的微光。"
+    "空气中弥漫着潮湿的泥土气息，混杂着电子设备散热的臭氧味。"
+    "这里距离地表197米，距离最近的城镇42公里。"
+    "除了地震波的嗡鸣和自己的呼吸声，世界一片寂静。"
+
     ## 主角登场
     show geo neutral
     with dissolve
 
     geo "（盯着屏幕上闪烁的数据）"
     geo "负深度... -247米。"
+
+    "他揉了揉眼睛，第八千零一次确认这不是幻觉。"
+
     geo "这个数字本身就是悖论。"
 
     show geo thinking
 
-    geo "就像在说'非存在的存在'。"
-    geo "但设备不会说谎..."
+    geo "就像在说'非存在的存在'，'位于地下的地上'。"
+    geo "但设备不会说谎... 至少不会连续九个月说同一个谎。"
+
+    "他的手指在键盘上敲击，调出校准日志。"
+
+    geo "传感器校准正常... 信号滤波正常... 时间同步正常..."
     geo "除非——"
 
     ## 分支点0：初始性格塑造（学术回忆闪回）
@@ -142,26 +216,58 @@ label start:
 
         "回忆：教授当众否定你的理论时...":
 
+            "屏幕闪烁，画面仿佛回到了六年前。"
+            "小马国地质学会年度大会，主会场，三百双眼睛。"
+
             ## 子选择
             menu academia_reaction:
                 "「我会证明你们都错了」":
                     $ doubt_intensity += 15
                     $ martyrdom_tendency += 10
 
+                    "他记得主席台上那双轻蔑的眼睛。"
+                    "'Geo Tremor先生，你的'地心魔法场理论'缺乏任何实证基础。'"
+                    "'这不是科学，这是... 神秘主义。'"
+
                     geo "（攥紧拳头）那些自以为是的学者..."
-                    geo "他们困在教科书里，看不见真实的宇宙。"
+                    geo "他们困在教科书里，困在同行评审的象牙塔里。"
+                    geo "他们看不见... 不，是不敢看见真实的宇宙。"
+
+                    "从那天起，他再没有收到任何学术期刊的回复。"
+                    "六个月后，他的研究经费被取消。"
+                    "十个月后，他在这个废弃矿井里建立了自己的观测站。"
+
+                    geo "用我自己的方式，找到他们不敢面对的真相。"
 
                 "「也许他们是对的...」":
                     $ acceptance_level -= 10
                     $ doubt_intensity -= 5
 
+                    "掌声。嘲笑。窃窃私语。"
+                    "他记得自己拿着论文走下讲台，手在颤抖。"
+
                     geo "（叹气）也许我真的只是在浪费时间。"
                     geo "一个被学术界抛弃的地质学家，在废弃矿井里做梦。"
 
+                    "但即使这样..."
+                    "即使这九个月可能毫无意义..."
+
+                    geo "我还是想知道这个负深度到底是什么。"
+                    geo "哪怕只是为了证明我疯得彻底。"
+
                 "「我只是想找到真相」":
+                    "他记得那场会议，但情绪已经被时间磨平。"
+                    "他们笑了，他们否定了，然后他们离开了。"
+                    "而数据还在。"
+
                     geo "（平静地看着数据）"
                     geo "真相不在乎谁相信它。"
-                    geo "它只是存在。"
+                    geo "它不需要同行评审，不需要学术认可。"
+                    geo "它只是... 存在。"
+
+                    geo "而我的工作，就是观测它、记录它、理解它。"
+                    geo "至于其他小马是否在意——"
+                    geo "那不是真相的问题，是他们的问题。"
 
     scene bg mine
     show geo neutral
@@ -218,38 +324,91 @@ label chapter1_discovery:
     scene bg observatory
     with fade
 
-    "（三天后，远程通讯）"
+    "（三天后）"
+
+    "Geo站在通讯设备前，犹豫了很久。"
+    "这个号码，他已经三年没拨过了。"
+    "上一次，是在那场学术会议之后。"
+    "当所有人都离开时，只有她发来一条消息："
+    "'有些真相，需要被看见。即使没人相信。'"
+
+    "他深吸一口气，按下了通讯键。"
+
+    play sound "audio/comm_connect.ogg"
+
+    "（远程通讯连接中...）"
 
     show astral calm
     with dissolve
 
     astral "Geo Tremor？"
+
+    "她的声音带着一丝惊讶，和三年前一样清冷。"
+
     astral "我以为你已经... 离开学术界了。"
 
     show geo neutral at left
     show astral calm at right
 
     geo "我是离开了。但科学没有离开我。"
+
+    "沉默。"
+    "通讯器里传来远方天文台的风声。"
+
     geo "我需要你的空间曲率探测器。"
 
     show astral curious
 
     astral "（眼神一闪）你发现了什么？"
 
+    "她的语气变了。"
+    "不再是礼貌性的寒暄，而是科学家的敏锐。"
+
     geo "一个... 负深度信号。"
     geo "来自地下247米的'不存在的位置'。"
+
+    "屏幕上，他看到她的表情变化。"
+    "惊讶、怀疑、然后是... 兴奋？"
 
     if clarke_index >= 70:
         astral "时空曲率异常？"
         astral "如果是虫洞或奇点的局部效应..."
+        astral "（停顿）你有多少数据？"
+
+        geo "九个月的连续观测。八千多条记录。"
+
+        astral "（倒吸一口冷气）九个月..."
+        astral "你一个人，在那个废弃矿井里，待了九个月？"
+
+        geo "真相不在乎孤独。"
     else:
         astral "（低声）深渊的回音..."
         astral "有些东西不该被测量，Geo。"
 
+        geo "但它已经在那里了。无论我们测不测量。"
+
+        astral "（叹气）你还是这么固执。"
+
     show astral calm
 
     astral "但我会帮你。"
+
+    "她的声音软化了一点。"
+
     astral "我们都是... 被放逐者。"
+    astral "被学术界抛弃的疯子。"
+    astral "追寻那些'不该存在'的真相。"
+
+    geo "（苦笑）也许我们确实疯了。"
+
+    astral "那就让我们一起疯吧。"
+    astral "我的曲率探测器明天到达。"
+    astral "Geo... 无论你发现了什么..."
+    astral "至少这次，你不是一个人。"
+
+    "通讯断开。"
+    "矿井深处，Geo第一次在九个月里笑了。"
+    "不是苦笑，而是真正的微笑。"
 
     ## 分支点2：星图师提出联合验证
     menu astral_cooperation:
@@ -355,6 +514,11 @@ label vortex_revelation:
 
     play music "audio/vortex_hum.ogg"
 
+    "仪器发出低沉的嗡鸣。"
+    "屏幕上的像素开始重组。"
+    "数据流转化为图像。"
+    "一点、一线、一面..."
+
     narrator """
     影像浮现。
 
@@ -367,37 +531,145 @@ label vortex_revelation:
 
     nvl clear
 
+    "那是一种无法用语言描述的结构。"
+    "螺旋、嵌套、自相似的分形图案。"
+    "它在旋转，但同时又是静止的。"
+    "它是紫色的，但又超越了所有已知的颜色。"
+
     show geo shocked
     with dissolve
 
     geo "那是... 什么？"
+
+    "他的声音在颤抖。"
+    "不是恐惧，而是某种更深层的震撼。"
+    "就像第一次仰望星空的小马驹，意识到宇宙的无限。"
 
     show astral despair at right
 
     astral "（颤抖）尺度..."
     astral "Geo，看那个尺度标注。"
 
+    "屏幕右下角，一行小字。"
+    "数字在闪烁。"
+
     geo "（瞳孔收缩）直径... 四千公里？"
+
+    "他的蹄子悬在键盘上，忘记了敲击。"
+
     geo "这不可能。这比地球核心还大。"
+    geo "这比我们脚下的整个大陆还要大。"
+
+    "沉默。"
+    "两个小马盯着屏幕。"
+    "时间仿佛停滞了。"
 
     if clarke_index >= 60:
         astral "也许是高维投影。"
         astral "我们看到的只是三维切片。"
+        astral "就像... 用二维纸面去理解三维球体。"
+        astral "我们看到的是圆，但真实的存在是球。"
     else:
         astral "也许有些存在..."
         astral "从来就不属于我们的维度。"
+        astral "就像影子永远无法理解投射它的实体。"
 
     ## 关键发现：能量流动
     geo "等等... 那些线条..."
+
+    "他放大了影像的某个区域。"
+
     geo "（调整显示参数）"
+
+    "细小的光线，从漩涡的边缘延伸出来。"
+    "千万条，亿万条，密密麻麻。"
+    "像血管，像神经，像..."
 
     play sound "audio/seismic_ping.ogg"
 
     geo "它在... 吸收什么。"
 
     astral "能量流。从地表向下。"
+
+    "她调出另一个窗口，叠加了魔法场强度图。"
+
     astral "来源是... （停顿）"
+
+    "她的蹄子开始颤抖。"
+
     astral "小马的情感辐射？生命能量？"
+    astral "每一次心跳、每一个念头、每一丝魔法..."
+    astral "都在被... 吸入那个东西。"
+
+    geo "（低语）我们一直在喂养它。"
+    geo "每个活着的生命，从诞生到死亡。"
+    geo "我们的存在本身，就是它的能量来源。"
+
+    scene bg instrument
+    with fade
+
+    "（六小时后）"
+
+    show geo thinking at left
+    show astral calm at right
+
+    "两个小马围坐在一张临时搭建的工作台前。"
+    "纸张、计算器、星图、能量测量数据散落一地。"
+
+    astral "我算出来了。"
+
+    show geo shocked
+
+    geo "什么？"
+
+    astral "尺度比。我们和它之间的尺度差距。"
+
+    "她推过来一张布满公式的纸。"
+
+    astral "小马的平均能量输出... 按魔法单位Thaum计算..."
+    astral "大约10的9.2次方Thaum。"
+
+    geo "那个漩涡呢？"
+
+    astral "（深吸一口气）它的日常波动..."
+    astral "10的27次方Thaum。"
+
+    "沉默。"
+
+    geo "等等... 让我算一下..."
+
+    "他的蹄子在颤抖地写着数字。"
+
+    geo "27减去9.2... 那是..."
+    geo "（声音越来越小）10的18次方。"
+
+    show geo despair at left
+    show astral despair at right
+
+    astral "一亿亿倍。"
+
+    geo "这意味着..."
+
+    astral "这意味着我们对它的影响，就像..."
+
+    "她停顿了很久。"
+
+    astral "就像一个细胞，试图引起人类的注意。"
+    astral "不... 更小。"
+    astral "像一个原子，试图和星系对话。"
+
+    geo "（苦笑）那么... 沟通..."
+
+    astral "物理上不可能。"
+    astral "即使我们用尽全球所有生命的能量..."
+    astral "对它来说，也只是背景噪音中的一次微小波动。"
+
+    geo "它甚至不会注意到。"
+
+    astral "就像你不会注意到皮肤上一个细胞的死亡。"
+
+    "两个小马陷入沉默。"
+    "矿井深处的寒意渗入骨髓。"
 
     ## 分支点3：看到真相后的反应
     menu truth_reaction:
@@ -699,24 +971,48 @@ label ending_A:
     show geo neutral
     with dissolve
 
+    "他站在仪器前，手指悬停在启动键上。"
+    "九个月的孤独。"
+    "六年的追寻。"
+    "此刻，汇聚成一个简单的选择。"
+
     geo "（启动仪式装置）"
 
     play sound "audio/ritual.ogg"
 
-    "静默。静默。静默。静默。"
+    "魔法韵律开始流动。"
+    "四个静默律，一个接一个。"
+
+    "静默。"
+    "静默。"
+    "静默。"
+    "静默。"
+
+    "这不是请求。"
+    "不是问候。"
+    "不是祈祷。"
+    "只是一种... 承认。"
 
     scene bg vortex
     with dissolve
 
     "漩涡的影像在屏幕上旋转。"
+    "巨大、永恒、漠然。"
+
     "但没有回应。"
     "没有共鸣。"
     "没有改变。"
+
+    "能量流继续，如同亿万年前。"
+    "旋转继续，如同亿万年后。"
 
     show geo thinking
     with dissolve
 
     geo "......"
+
+    "他盯着屏幕看了很久。"
+    "久到星图师以为他睡着了。"
 
     show astral calm at right
 
@@ -730,8 +1026,14 @@ label ending_A:
 
     show geo enlightened
 
-    geo "如果它不在意，就不会有沉默。"
-    geo "沉默本身，就是回答。"
+    geo "如果它真的无法感知我们，那么结果应该是随机的。"
+    geo "也许会有波动，也许会有干扰，也许会有噪音。"
+    geo "但这是... 完美的静默。"
+    geo "就像一个礼貌的拒绝。"
+
+    astral "或者只是巧合。"
+
+    geo "（微笑）也许。但那又有什么区别呢？"
 
     narrator """
     他理解了。
@@ -745,6 +1047,14 @@ label ending_A:
     你会回应吗？
 
     你甚至会注意到吗？
+
+    不。
+
+    不是因为恶意。
+    不是因为冷漠。
+    而是因为——
+
+    物理定律不允许。
     """
 
     nvl clear
@@ -759,33 +1069,85 @@ label ending_A:
     geo "也不是善意。"
     geo "它只是... 存在。"
 
+    "他的声音很平静，甚至带着一丝轻松。"
+
     geo "就像地球绕太阳，太阳绕银河中心。"
     geo "没有目的，没有意义。"
-    geo "只是... 物理定律的必然。"
+    geo "只是... 物理定律的必然展开。"
 
     show astral despair at right
 
-    astral "那我们..."
+    astral "那我们... 我们这九个月..."
+    astral "我们的存在..."
 
     geo "我们继续活着。"
+
+    show geo neutral at left
+
     geo "在被吞噬的同时，绽放萤火。"
+    geo "不是为了被看见。"
+    geo "不是为了被记住。"
+    geo "而是因为... 我们选择绽放。"
+
+    astral "（沉默良久）这是... 解脱吗？"
+
+    geo "也许。也许是悲凉。"
+    geo "但至少..."
+    geo "我不再需要等待它的回应了。"
 
     scene bg mine
     with fade
 
     "Geo关闭了设备。"
-    "密封了数据。"
-    "离开了矿井。"
+    "没有仪式，没有告别。"
+    "就像关掉一盏灯。"
 
-    "他回到地表，继续他的研究。"
-    "不再寻找意义。"
-    "只是观察、记录、接受。"
+    "他密封了数据。"
+    "不是藏起来，而是存档。"
+    "就像一封永远不会被读的信。"
+
+    "他离开了矿井。"
 
     scene black
     with dissolve
 
     narrator """
-    三十年后，他在病床上想起那个负深度。
+    他回到地表，继续他的研究。
+
+    但不再寻找意义。
+
+    只是观察。
+    记录。
+    接受。
+
+    他开始教书。
+
+    在课堂上，他教学生如何感知地球的脉动。
+
+    但从不告诉他们，这脉动通往何处。
+
+    有些学生问：「为什么我们要测量这些？」
+
+    他说：「因为它们存在。」
+
+    「但它们有意义吗？」
+
+    他说：「意义是你赋予的。不是它本身拥有的。」
+    """
+
+    nvl clear
+
+    scene black
+    with dissolve
+
+    narrator """
+    三十年后。
+
+    病床上。
+
+    窗外的星空和第一次仰望时一样明亮。
+
+    他想起那个负深度。
 
     仍然在那里。
 
@@ -798,11 +1160,29 @@ label ending_A:
     但也是一种解脱。
 
     不需要被聆听的自由。
+
+    不需要被理解的完整。
+
+    不需要被宇宙肯定的存在。
+
+    他闭上眼睛，最后一次想起那个公式。
+
+    10的18次方。
+
+    一亿亿倍的差距。
+
+    然后他笑了。
+
+    因为他终于明白——
+
+    萤火不需要漩涡看见。
+
+    它只需要燃烧。
     """
 
     nvl clear
 
-    centered "{size=+10}结局 A：宇宙的冷漠{/size}\n\n\"意义是我们的发明。宇宙从未承诺过要回应。\"\n\n{size=-2}克拉克硬度：⭐⭐⭐⭐⭐{/size}"
+    centered "{size=+10}结局 A：宇宙的冷漠{/size}\n\n\"意义是我们的发明。\n宇宙从未承诺过要回应。\n但我们依然可以选择，赋予自己意义。\"\n\n{size=-2}克拉克硬度：⭐⭐⭐⭐⭐{/size}"
 
     $ endings_achieved.append("A")
 
